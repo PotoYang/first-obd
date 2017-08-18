@@ -9,9 +9,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.chh.potoyang.config.ActivityURL;
+import com.chh.yinbao.config.ActivityURL;
 import com.chh.yinbao.R;
-import com.chh.potoyang.utils.LogUtils;
+import com.chh.yinbao.utils.LogUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

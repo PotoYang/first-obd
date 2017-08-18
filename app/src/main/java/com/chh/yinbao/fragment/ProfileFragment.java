@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.chh.potoyang.config.ActivityURL;
+import com.chh.yinbao.config.ActivityURL;
 import com.chh.yinbao.R;
-import com.chh.potoyang.utils.ArouterUtils;
+import com.chh.yinbao.utils.ArouterUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

@@ -11,18 +11,18 @@ import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.utils.TextUtils;
-import com.chh.potoyang.User;
-import com.chh.potoyang.config.ActivityURL;
-import com.chh.potoyang.config.UserData;
+import com.chh.yinbao.User;
+import com.chh.yinbao.config.ActivityURL;
+import com.chh.yinbao.config.UserData;
 import com.chh.yinbao.FirstApplication;
 import com.chh.yinbao.R;
 import com.chh.yinbao.presenter.LoginPresenter;
 import com.chh.yinbao.util.TSnackbarUtils;
 import com.chh.yinbao.view.LoginView;
-import com.chh.potoyang.utils.AppManager;
-import com.chh.potoyang.utils.ArouterUtils;
-import com.chh.potoyang.utils.LogUtils;
-import com.chh.potoyang.utils.SharedPreferencesUtils;
+import com.chh.yinbao.utils.AppManager;
+import com.chh.yinbao.utils.ArouterUtils;
+import com.chh.yinbao.utils.LogUtils;
+import com.chh.yinbao.utils.SharedPreferencesUtils;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 
 import butterknife.Bind;

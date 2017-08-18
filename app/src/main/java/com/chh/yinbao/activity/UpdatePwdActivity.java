@@ -5,13 +5,13 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.chh.potoyang.config.ActivityURL;
+import com.chh.yinbao.config.ActivityURL;
 import com.chh.yinbao.R;
 import com.chh.yinbao.util.MyToast;
 import com.chh.yinbao.util.TSnackbarUtils;
-import com.chh.potoyang.service.account.AccountService;
-import com.chh.potoyang.service.account.AccountServiceImpl;
-import com.chh.potoyang.service.http.HttpCallBack;
+import com.chh.yinbao.service.account.AccountService;
+import com.chh.yinbao.service.account.AccountServiceImpl;
+import com.chh.yinbao.service.http.HttpCallBack;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

@@ -7,15 +7,15 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.chh.potoyang.config.ActivityURL;
-import com.chh.potoyang.config.UserData;
+import com.chh.yinbao.config.ActivityURL;
+import com.chh.yinbao.config.UserData;
 import com.chh.yinbao.R;
 import com.chh.yinbao.util.MyToast;
-import com.chh.potoyang.service.account.AccountService;
-import com.chh.potoyang.service.account.AccountServiceImpl;
-import com.chh.potoyang.service.http.HttpCallBack;
-import com.chh.potoyang.utils.ArouterUtils;
-import com.chh.potoyang.utils.SharedPreferencesUtils;
+import com.chh.yinbao.service.account.AccountService;
+import com.chh.yinbao.service.account.AccountServiceImpl;
+import com.chh.yinbao.service.http.HttpCallBack;
+import com.chh.yinbao.utils.ArouterUtils;
+import com.chh.yinbao.utils.SharedPreferencesUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

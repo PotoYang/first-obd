@@ -2,13 +2,13 @@ package com.chh.yinbao.presenter;
 
 import android.content.Context;
 
-import com.chh.potoyang.Token;
-import com.chh.potoyang.User;
-import com.chh.potoyang.config.UserData;
+import com.chh.yinbao.Token;
+import com.chh.yinbao.User;
+import com.chh.yinbao.config.UserData;
 import com.chh.yinbao.view.LoginView;
-import com.chh.potoyang.service.account.AccountService;
-import com.chh.potoyang.service.account.AccountServiceImpl;
-import com.chh.potoyang.service.http.HttpCallBack;
+import com.chh.yinbao.service.account.AccountService;
+import com.chh.yinbao.service.account.AccountServiceImpl;
+import com.chh.yinbao.service.http.HttpCallBack;
 
 /**
  * Created by potoyang on 2017/8/7.

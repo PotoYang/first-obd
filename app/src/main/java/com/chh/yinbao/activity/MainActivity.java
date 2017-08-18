@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.chh.potoyang.config.ActivityURL;
+import com.chh.yinbao.config.ActivityURL;
 import com.chh.yinbao.R;
 import com.chh.yinbao.fragment.BaseFragment;
 import com.chh.yinbao.fragment.DiscountInfoFragment;
@@ -14,7 +14,7 @@ import com.chh.yinbao.fragment.PaybackPlanFragment;
 import com.chh.yinbao.fragment.ProfileFragment;
 import com.chh.yinbao.util.MyToast;
 import com.chh.yinbao.widget.HomeBottomTabView;
-import com.chh.potoyang.utils.AppManager;
+import com.chh.yinbao.utils.AppManager;
 
 import java.util.ArrayList;
 import java.util.List;

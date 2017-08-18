@@ -1,6 +1,6 @@
 package com.chh.yinbao.view;
 
-import com.chh.potoyang.User;
+import com.chh.yinbao.User;
 
 /**
  * Created by potoyang on 2017/8/7.

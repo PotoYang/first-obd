@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.chh.yinbao.R;
-import com.chh.potoyang.utils.AppManager;
-import com.chh.potoyang.utils.ArouterUtils;
+import com.chh.yinbao.utils.AppManager;
+import com.chh.yinbao.utils.ArouterUtils;
 import com.chh.yinbao.util.DialogUtil;
 
 /**

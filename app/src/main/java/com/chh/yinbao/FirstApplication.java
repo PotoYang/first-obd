@@ -3,9 +3,9 @@ package com.chh.yinbao;
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.chh.potoyang.config.Config;
-import com.chh.potoyang.utils.FileUtils;
-import com.chh.potoyang.utils.LogUtils;
+import com.chh.yinbao.config.Config;
+import com.chh.yinbao.utils.FileUtils;
+import com.chh.yinbao.utils.LogUtils;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
