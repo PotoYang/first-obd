@@ -1,6 +1,7 @@
 package com.chh.yinbao.service.account;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.chh.yinbao.Token;
@@ -48,7 +49,7 @@ public class AccountServiceImpl extends BaseImp implements AccountService {
         doRequest(accountApi.userLogin(map)
                 .map(new Function<Token, Token>() {
                     @Override
-                    public Token apply(Token token) throws Exception {
+                    public Token apply(@Nullable Token token) throws Exception {
                         SharedPreferencesUtils.addEncryptValue(context, UserData.USER_NAME, mobile);
                         SharedPreferencesUtils.addValue(context, UserData.TOKEN, token.getToken());
                         if (isRememberPwd) {

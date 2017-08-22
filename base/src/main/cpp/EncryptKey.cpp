@@ -6,7 +6,7 @@
 
 extern "C"
 jstring
-Java_com_chh_potoyang_utils_EncrypJNIUtils_getKey(
+Java_com_chh_yinbao_utils_EncrypJNIUtils_getKey(
         JNIEnv *env,
         jobject /* this */) {
     std::string hello = "11111111111111111111111111111111";

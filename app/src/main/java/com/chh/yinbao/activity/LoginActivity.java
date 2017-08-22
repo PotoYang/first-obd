@@ -11,18 +11,18 @@ import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.utils.TextUtils;
+import com.chh.yinbao.FirstApplication;
+import com.chh.yinbao.R;
 import com.chh.yinbao.User;
 import com.chh.yinbao.config.ActivityURL;
 import com.chh.yinbao.config.UserData;
-import com.chh.yinbao.FirstApplication;
-import com.chh.yinbao.R;
 import com.chh.yinbao.presenter.LoginPresenter;
 import com.chh.yinbao.util.TSnackbarUtils;
-import com.chh.yinbao.view.LoginView;
 import com.chh.yinbao.utils.AppManager;
 import com.chh.yinbao.utils.ArouterUtils;
 import com.chh.yinbao.utils.LogUtils;
 import com.chh.yinbao.utils.SharedPreferencesUtils;
+import com.chh.yinbao.view.LoginView;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 
 import butterknife.Bind;
@@ -72,6 +72,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
     }
 
     public void loginClick(View view) {
+//        ArouterUtils.startActivity(ActivityURL.MainActivity);
         userPresenter.userLogin(etLoginMobile.getText().toString().trim(), etLoginPassword.getText().toString().trim(), rememberPwd.isChecked());
     }
 
@@ -134,11 +135,6 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
             ArouterUtils.startActivity(ActivityURL.MainActivity);
             finishWithAnim();
         }
-        if ((123 & 112) == 0){}
-//        ArrayList;
-//        LinkedList;
-//        TreeMap;
-//        LinkedHashMap;
     }
 
     @Override
