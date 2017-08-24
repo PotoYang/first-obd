@@ -61,10 +61,13 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
         setToolBarLeftText(getString(R.string.exit));
         setToolbarTitleText(getString(R.string.login_title));
         setToolBarRightText(getString(R.string.login_register), ActivityURL.RegisterActivity);
-//        Bundle bundle = getIntent().getExtras();
-//        if (bundle != null && !TextUtils.isEmpty(bundle.getString("msg"))) {
-//            MyToast.show(getApplicationContext(), bundle.getString("msg"));
-//        }
+        Bundle bundle = getIntent().getExtras();
+        String code = bundle.getString("code");
+        if (code != null) {
+//            showProgressDialog("微信信息传递中" + code);
+            userPresenter.getBaseWXInfo(code);
+        }
+
         String mobile = SharedPreferencesUtils.getDecryptValue(getApplicationContext(), UserData.USER_NAME);
         if (!TextUtils.isEmpty(mobile)) {
             etLoginMobile.setText(mobile);
@@ -94,6 +97,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
         req.scope = "snsapi_userinfo";
         req.state = "wechat_first_test";
         FirstApplication.iwxapi.sendReq(req);
+        finish();
 //        Final SendAuth.Req req = new SendAuth.Req();
 //        req.scope = "snsapi_userinfo";
 //        req.state = "wechat_sdk_demo_test";
@@ -112,6 +116,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
 
     @Override
     public void loginSuccess(final User data) {
+        System.out.println(data.getWeixinNickName());
         if (data.getIdCard() == null || data.getCarNo() == null) {
             new AlertDialog.Builder(LoginActivity.this)
                     .setTitle("登录成功，需进行信息绑定")

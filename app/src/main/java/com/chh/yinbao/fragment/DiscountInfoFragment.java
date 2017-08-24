@@ -8,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.chh.yinbao.R;
 import com.chh.yinbao.config.ActivityURL;
 import com.chh.yinbao.config.UserData;
-import com.chh.yinbao.R;
 import com.chh.yinbao.util.MyToast;
 import com.chh.yinbao.utils.ArouterUtils;
 import com.chh.yinbao.utils.SharedPreferencesUtils;

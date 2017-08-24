@@ -14,25 +14,25 @@ public interface AccountService {
 
     void loginOut(HttpCallBack<String> callBack);
 
-    //发送注册短信
+    //发送注册短信验证码
     void sendRegisterSmsCode(String mobile, HttpCallBack<Object> callBack);
 
     //注册
-//    void register(String mobile, String checkCode, String userPwd, String userPwdAgain, HttpCallBack<Object> callBack);
     void register(String mobile, String password1, String password2, HttpCallBack<Object> callBack);
 
-    //找回密码
+    //发送找回密码验证码
     void sendFindPwdSmsCode(String mobile, HttpCallBack<Object> callBack);
 
-    //确认短信验证码
-    void verifyFindPwdSmsCode(String userName, String checkCode, HttpCallBack<Object> callBack);
+    //校验短信验证码
+    void verifySmsCode(String mobile, String checkCode, HttpCallBack<Object> callBack);
 
     //通过短信重置密码
-    void resetPwd(String userName, String newPwd, String newPwdAgain, String smsCode, HttpCallBack<Object> callBack);
+    void resetPwd(String mobile, String password1, String password2, HttpCallBack<Object> callBack);
 
     //登录成功后重置密码
     void updatePwd(String oldPwd, String newPwd, String newPwdAgain, HttpCallBack<Object> callBack);
 
+    //获取用户信息
     void getUserInfo(String token, HttpCallBack<User> callBack);
 
     //绑定用户信息

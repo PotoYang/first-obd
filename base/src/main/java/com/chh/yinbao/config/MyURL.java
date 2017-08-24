@@ -34,8 +34,11 @@ public class MyURL {
     public final static String refreshToken = "user/refreshToken";
     //发送短信验证码
     public final static String sendSmsCode = "sms/getCode";
-    public final static String verifySmsCode = "user/verifySmsCode";
-    public final static String resetPwd = "user/resetPwd";
+    //校验短信验证码
+    public final static String verifySmsCode = "sms/checkCode";
+    //重置密码
+    public final static String resetPwd = "memberInfo/findPassword";
+    //用户注册
     public final static String register = "member/mobile/regist";
 
 

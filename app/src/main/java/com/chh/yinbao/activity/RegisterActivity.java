@@ -9,15 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.chh.yinbao.R;
 import com.chh.yinbao.Token;
 import com.chh.yinbao.config.ActivityURL;
 import com.chh.yinbao.config.UserData;
-import com.chh.yinbao.R;
-import com.chh.yinbao.util.MyToast;
-import com.chh.yinbao.util.TSnackbarUtils;
 import com.chh.yinbao.service.account.AccountService;
 import com.chh.yinbao.service.account.AccountServiceImpl;
 import com.chh.yinbao.service.http.HttpCallBack;
+import com.chh.yinbao.util.MyToast;
+import com.chh.yinbao.util.TSnackbarUtils;
 import com.chh.yinbao.utils.ArouterUtils;
 import com.chh.yinbao.utils.SharedPreferencesUtils;
 
@@ -69,11 +69,11 @@ public class RegisterActivity extends BaseActivity {
         }
         long nowTime = System.currentTimeMillis();
         final long diff = (nowTime - firstTime) / 1000;
-        if (diff < 59) {
+        if (diff < 119) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    long index = 59 - diff;
+                    long index = 119 - diff;
                     while (index > 0) {
                         try {
                             refreshCheckcodeBtn(index);
@@ -133,9 +133,43 @@ public class RegisterActivity extends BaseActivity {
 
     public void registerClick(final View view) {
         final String mobile = etRegisterMobile.getText().toString().trim();
-//        String checkCode = etRegisterCheckCode.getText().toString().trim();
+        String checkCode = etRegisterCheckCode.getText().toString().trim();
+
+        showProgressDialog("正在进行短信验证,请稍后....");
+        HttpCallBack<Object> callBack = new HttpCallBack<Object>() {
+            @Override
+            public void onSuccess(Object data) {
+                hideDialog();
+                MyToast.show(getApplicationContext(), "完成验证");
+                new AlertDialog.Builder(RegisterActivity.this).setTitle("点击下一步完成注册")
+                        .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                registerAfterChecked(view);
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).create().show();
+            }
+
+            @Override
+            public void onError(int state, String message) {
+                hideDialog();
+                TSnackbarUtils.showTSnackbar(view, message + "验证失败，请重试...");
+            }
+        };
+
+        accountService.verifySmsCode(mobile, checkCode, callBack);
+    }
+
+    private void registerAfterChecked(final View view) {
         final String password1 = etRegisterPassword1.getText().toString().trim();
         String password2 = etRegisterPassword2.getText().toString().trim();
+        final String mobile = etRegisterMobile.getText().toString().trim();
 
         showProgressDialog(getString(R.string.do_register));
         HttpCallBack<Object> callBack = new HttpCallBack<Object>() {

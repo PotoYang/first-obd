@@ -7,13 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.chh.yinbao.R;
 import com.chh.yinbao.config.ActivityURL;
 import com.chh.yinbao.config.UserData;
-import com.chh.yinbao.R;
-import com.chh.yinbao.util.MyToast;
 import com.chh.yinbao.service.account.AccountService;
 import com.chh.yinbao.service.account.AccountServiceImpl;
 import com.chh.yinbao.service.http.HttpCallBack;
+import com.chh.yinbao.util.MyToast;
 import com.chh.yinbao.utils.ArouterUtils;
 import com.chh.yinbao.utils.SharedPreferencesUtils;
 
@@ -61,11 +61,11 @@ public class FindPwdActivity extends BaseActivity {
         }
         long nowTime = System.currentTimeMillis();
         final long diff = (nowTime - firstTime) / 1000;
-        if (diff < 59) {
+        if (diff < 119) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    long index = 59 - diff;
+                    long index = 119 - diff;
                     while (index > 0) {
                         try {
                             refreshCheckcodeBtn(index);
@@ -119,16 +119,17 @@ public class FindPwdActivity extends BaseActivity {
     }
 
     public void findClick(View view) {
-        /*final String userName = etFindUserName.getText().toString().trim();
+        final String mobile = etFindUserName.getText().toString().trim();
         final String checkCode = etFindCheckCode.getText().toString().trim();
         showProgressDialog("");
         HttpCallBack<Object> callBack = new HttpCallBack<Object>() {
             @Override
             public void onSuccess(Object data) {
                 hideDialog();
+                MyToast.show(getApplicationContext(), "验证成功!");
                 Bundle bundle = new Bundle();
                 bundle.putString(ResetPwdActivity.SMSCODE_KEY, checkCode);
-                bundle.putString(ResetPwdActivity.LOGINNAME_KEY, userName);
+                bundle.putString(ResetPwdActivity.LOGINNAME_KEY, mobile);
                 ArouterUtils.startActivity(bundle, ActivityURL.ResetPwdActivity);
                 finishWithAnim();
             }
@@ -139,15 +140,6 @@ public class FindPwdActivity extends BaseActivity {
                 MyToast.show(getApplicationContext(), message);
             }
         };
-        accountService.verifyFindPwdSmsCode(userName, checkCode, callBack);*/
-
-        final String userName = etFindUserName.getText().toString().trim();
-        final String checkCode = etFindCheckCode.getText().toString().trim();
-
-        Bundle bundle = new Bundle();
-        bundle.putString(ResetPwdActivity.SMSCODE_KEY, checkCode);
-        bundle.putString(ResetPwdActivity.LOGINNAME_KEY, userName);
-        ArouterUtils.startActivity(bundle, ActivityURL.ResetPwdActivity);
-        finishWithAnim();
+        accountService.verifySmsCode(mobile, checkCode, callBack);
     }
 }

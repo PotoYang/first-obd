@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/bean" />
+            <option value="$PROJECT_DIR$/mqtttest" />
             <option value="$PROJECT_DIR$/service" />
           </set>
         </option>

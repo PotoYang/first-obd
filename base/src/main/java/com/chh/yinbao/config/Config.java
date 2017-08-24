@@ -54,6 +54,6 @@ public class Config {
     /**
      * 微信的AppID和AppSecret
      */
-    public static final String WX_APP_ID = "wxd736a63fe4009cc6";
-    public static final String WX_APP_SECTRET= "52544bc3d375c93fd0291630c9434641";
+    public static final String WX_APP_ID = "wx276b5bb127ed8869";
+    public static final String WX_APP_SECRET= "7ecf26201c244f7336e0b1c1fd9cb00b";
 }

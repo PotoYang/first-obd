@@ -78,7 +78,7 @@ public class AccountServiceImpl extends BaseImp implements AccountService {
             callBack.onError(-1, "手机号不正确");
             return;
         }
-        doRequest(accountApi.sendSmsCode(mobile), callBack);
+        doRequest(accountApi.sendSmsCode(mobile, 1), callBack);
     }
 
     @Override
@@ -107,11 +107,11 @@ public class AccountServiceImpl extends BaseImp implements AccountService {
             callBack.onError(-1, "手机号不正确");
             return;
         }
-        doRequest(accountApi.sendSmsCode(mobile), callBack);
+        doRequest(accountApi.sendSmsCode(mobile, 2), callBack);
     }
 
     @Override
-    public void verifyFindPwdSmsCode(String mobile, String checkCode, HttpCallBack<Object> callBack) {
+    public void verifySmsCode(String mobile, String checkCode, HttpCallBack<Object> callBack) {
         if (TextUtils.isEmpty(mobile) || !InputVerifyUtils.isMobileNO(mobile)) {
             callBack.onError(-1, "手机号不正确");
             return;
@@ -122,28 +122,26 @@ public class AccountServiceImpl extends BaseImp implements AccountService {
         }
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
-        map.put("checkCode", checkCode);
-        map.put("smsType", "2");
+        map.put("code", checkCode);
         doRequest(accountApi.verifySmsCode(map), callBack);
     }
 
     @Override
-    public void resetPwd(String mobile, String newPwd, String newPwdAgain, String smsCode, HttpCallBack<Object> callBack) {
-        if (TextUtils.isEmpty(newPwd) || TextUtils.isEmpty(newPwdAgain) || newPwd.length() < 6 || newPwd.length() > 20) {
+    public void resetPwd(String mobile, String password1, String password2, HttpCallBack<Object> callBack) {
+        if (TextUtils.isEmpty(password1) || TextUtils.isEmpty(password2) || password1.length() < 6 || password1.length() > 20) {
             callBack.onError(-1, "请输入6-20位字符的新密码");
             return;
         }
-        if (!InputVerifyUtils.checkPwd(newPwd)) {
+        if (!InputVerifyUtils.checkPwd(password1)) {
             callBack.onError(-1, "密码只能是大写字母、小写字母和数字构成");
             return;
         }
-        if (!newPwd.equals(newPwdAgain)) {
+        if (!password1.equals(password2)) {
             callBack.onError(-1, "两次输入密码不一致");
         }
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
-        map.put("password", newPwd);
-        map.put("smsCode", smsCode);
+        map.put("newPassword", password1);
         doRequest(accountApi.resetPwd(map), callBack);
     }
 

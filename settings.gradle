@@ -1,1 +1,1 @@
-include ':app', ':service', ':bean', ':base', ':api'
+include ':app', ':service', ':bean', ':base', ':api', ':mqtttest'

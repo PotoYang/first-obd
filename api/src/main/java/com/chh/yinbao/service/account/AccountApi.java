@@ -34,9 +34,9 @@ public interface AccountApi {
     Observable<User> getUserInfo(@QueryMap Map<String, String> map);
 
     @GET(MyURL.sendSmsCode)
-    Observable<Object> sendSmsCode(@Query("mobile") String mobile);
+    Observable<Object> sendSmsCode(@Query("mobile") String mobile, @Query("type") int type);
 
-    @POST(MyURL.verifySmsCode)
+    @GET(MyURL.verifySmsCode)
     Observable<Object> verifySmsCode(@QueryMap Map<String, String> map);
 
     @POST(MyURL.resetPwd)

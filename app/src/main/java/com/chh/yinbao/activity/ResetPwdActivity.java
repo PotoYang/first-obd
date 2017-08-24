@@ -77,6 +77,6 @@ public class ResetPwdActivity extends BaseActivity {
                 MyToast.show(getApplicationContext(), message);
             }
         };
-        accountService.resetPwd(userName, newPwd, newPwdAgain, smsCode, callBack);
+        accountService.resetPwd(userName, newPwd, newPwdAgain, callBack);
     }
 }
