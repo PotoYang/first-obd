@@ -21,6 +21,16 @@ public class User implements Serializable {
     private int status;
     private String weixinNickName;
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    private String token;
+
     public String getCarNo() {
         return carNo;
     }

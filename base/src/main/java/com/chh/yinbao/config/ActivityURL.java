@@ -41,4 +41,5 @@ public class ActivityURL {
     public final static String HistoryCheckActivity = "/vehicle/historyCheck";
 
     public final static String BinInfoActivity = "/account/bindInfo";
+    public final static String LoadActivity = "/account/load";
 }

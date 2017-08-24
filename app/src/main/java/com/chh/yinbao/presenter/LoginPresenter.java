@@ -60,10 +60,11 @@ public class LoginPresenter extends BasePresenter {
     }
 
     private void getUserInfo() {
-        String token = UserData.getToken(context);
+        final String token = UserData.getToken(context);
         HttpCallBack<User> callBack = new HttpCallBack<User>() {
             @Override
             public void onSuccess(User data) {
+                data.setToken(token);
                 userView.loginSuccess(data);
             }
 

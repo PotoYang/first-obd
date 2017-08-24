@@ -116,7 +116,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
 
     @Override
     public void loginSuccess(final User data) {
-        System.out.println(data.getWeixinNickName());
+        System.out.println(data.getToken());
         if (data.getIdCard() == null || data.getCarNo() == null) {
             new AlertDialog.Builder(LoginActivity.this)
                     .setTitle("登录成功，需进行信息绑定")
@@ -137,7 +137,9 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements Lo
                     .create()
                     .show();
         } else {
-            ArouterUtils.startActivity(ActivityURL.MainActivity);
+            Bundle bundle = new Bundle();
+            bundle.putString("token", data.getToken());
+            ArouterUtils.startActivity(bundle, ActivityURL.LoadActivity);
             finishWithAnim();
         }
     }

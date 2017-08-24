@@ -221,7 +221,7 @@ public class RegisterActivity extends BaseActivity {
     }
 
     private void toHomeActivity() {
-        ArouterUtils.startActivity(ActivityURL.MainActivity);
+        ArouterUtils.startActivity(ActivityURL.LoadActivity);
         finishWithAnim();
     }
 

@@ -56,7 +56,7 @@ public class LauncherActivity extends BaseActivity {
         HttpCallBack<Token> callBack = new HttpCallBack<Token>() {
             @Override
             public void onSuccess(Token data) {
-                toHomeActivity();
+                toHomeActivity(data.getToken());
             }
 
             @Override
@@ -67,7 +67,10 @@ public class LauncherActivity extends BaseActivity {
         userService.login(username, password, true, callBack);
     }
 
-    private void toHomeActivity() {
-        ArouterUtils.startActivity(ActivityURL.MainActivity);
+    private void toHomeActivity(String token) {
+        Bundle bundle = new Bundle();
+        bundle.putString("token", token);
+        ArouterUtils.startActivity(bundle, ActivityURL.LoadActivity);
     }
+
 }
