@@ -52,7 +52,6 @@ public class RetrofitProxyHandler implements InvocationHandler {
                 .flatMap(new Function<Object, ObservableSource<?>>() {
                     @Override
                     public ObservableSource<?> apply(@NonNull Object o) throws Exception {
-//                    public ObservableSource<?> apply(Object o) throws Exception {
                         //这里判断是否需要更改token，更换完成之后继续执行之前的方法。
                         try {
                             if (mIsTokenNeedRefresh) {
@@ -100,8 +99,8 @@ public class RetrofitProxyHandler implements InvocationHandler {
         mIsTokenNeedRefresh = true;
         Map<String, String> map = new HashMap<>();
         String token = SharedPreferencesUtils.getValue(context, TokenHelper.ACCESS_TOKEN_KEY);
-        String accountId = SharedPreferencesUtils.getValue(context, "accountId");
-        map.put("accountId", accountId);
+//        String accountId = SharedPreferencesUtils.getValue(context, "accountId");
+//        map.put("accountId", accountId);
         map.put("token", token);
         LogUtils.i(TAG, "refreshTokenWhenTokenInvalid");
         RetrofitEngine.getInstance().create(AccountApi.class).refreshToken(map).subscribe(new DefaultObserver<TokenList>() {
